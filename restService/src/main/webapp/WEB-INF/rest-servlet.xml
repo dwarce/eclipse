@@ -20,12 +20,13 @@
     </cxf:bus>
 
 	<bean id="accountService" class="service.AccountService" init-method="init"></bean>
-	<bean id="jsonProvider" 
-		class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+	<bean id="userService" class="service.UserService"></bean>
+	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
 	
   	<jaxrs:server id="accountrs" address="/rservice">
   		<jaxrs:serviceBeans>
   			<ref bean="accountService"/>
+  			<ref bean="userService"/>
   		</jaxrs:serviceBeans>
   		<jaxrs:providers>
 			<ref bean='jsonProvider' />
